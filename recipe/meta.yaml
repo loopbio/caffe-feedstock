@@ -1,5 +1,6 @@
 {% set base_version = "1.0.0" %}
-{% set version_postfix = "rc3" %}
+{% set version_postfix = "rc4dev" %}
+{% set commit = "64915042cf4854ba5a47742b46a0295d38458ea3" %}
 {% set version = base_version + version_postfix %}
 
 {% set variant = "openblas" %}
@@ -10,15 +11,11 @@ package:
 
 source:
   fn: caffe_{{ version }}.tar.gz
-  url: https://github.com/BVLC/caffe/archive/{{ version_postfix }}.tar.gz
-  sha1: 79e075d06bea856164c926b92a40242b0369965b
-  patches:
-    # Add PR ( https://github.com/BVLC/caffe/pull/4516 ) as a patch.
-    # This fixes an issue with linking against HDF5.
-    - PR_4516.diff
+  url: https://github.com/BVLC/caffe/archive/{{ commit }}.tar.gz
+  sha1: 0b802a1650f72d9da12fff4cce414d08506cc3cf
 
 build:
-  number: 201
+  number: 0
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}
@@ -123,3 +120,4 @@ about:
 extra:
   recipe-maintainers:
     - jakirkham
+    - sdvillal (loopbio changes)
