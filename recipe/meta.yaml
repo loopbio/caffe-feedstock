@@ -1,5 +1,5 @@
 {% set base_version = "1.0.0" %}
-{% set version_postfix = "rc4dev" %}
+{% set version_postfix = "dev" %}
 {% set commit = "64915042cf4854ba5a47742b46a0295d38458ea3" %}
 {% set version = base_version + version_postfix %}
 
