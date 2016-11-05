@@ -1,3 +1,5 @@
+# Find our git repo: https://github.com/loopbio/caffe-feedstock
+
 {% set base_version = "1.0.0" %}
 {% set version_postfix = "dev" %}
 {% set commit = "64915042cf4854ba5a47742b46a0295d38458ea3" %}
