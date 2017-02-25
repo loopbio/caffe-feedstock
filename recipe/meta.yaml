@@ -1,7 +1,7 @@
 # Find our git repo: https://github.com/loopbio/caffe-feedstock
 
 {% set base_version = "1.0.0" %}
-{% set version_postfix = "rc4" %}
+{% set version_postfix = "rc5" %}
 {% set version = base_version + version_postfix %}
 
 {% set variant = "openblas" %}
@@ -13,7 +13,7 @@ package:
 source:
   fn: caffe_{{ version }}.tar.gz
   url: https://github.com/BVLC/caffe/archive/{{ version_postfix }}.tar.gz
-  sha1: afcb529881402b58733e00a66bf7ac6b7e969207
+  sha1: 7511c051a451f091fdf2cbd9b69be014fdc61f9b
 
 build:
   number: 0
