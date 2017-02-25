@@ -27,7 +27,7 @@ CONDARC
 
 rm -f "$FEEDSTOCK_ROOT/build_artefacts/conda-forge-build-done"
 
-cat << EOF | docker run -i \
+cat << EOF | nvidia-docker run -i \
                         -v "${RECIPE_ROOT}":/recipe_root \
                         -v "${FEEDSTOCK_ROOT}":/feedstock_root \
                         -a stdin -a stdout -a stderr \
@@ -43,6 +43,14 @@ conda clean --lock
 
 conda install --yes --quiet conda-forge-build-setup
 source run_conda_forge_build_setup
+
+
+# Install the yum requirements defined canonically in the
+# "recipe/yum_requirements.txt" file. After updating that file,
+# run "conda smithy rerender" and this line be updated
+# automatically.
+yum install -y libXcursor-devel libXinerama-devel
+
 
 # Embarking on 4 case(s).
     set -x
