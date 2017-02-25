@@ -39,7 +39,7 @@ requirements:
     - networkx
     - nose
     - numpy
-    - opencv 3.*
+    - opencv 3.2.*
     - pandas
     - pillow
     - protobuf
