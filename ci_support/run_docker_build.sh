@@ -13,8 +13,9 @@ docker info
 config=$(cat <<CONDARC
 
 channels:
+ - loopbio
  - conda-forge
- - defaults # As we need conda-build
+ - defaults
 
 conda-build:
  root-dir: /feedstock_root/build_artefacts
@@ -24,12 +25,14 @@ show_channel_urls: true
 CONDARC
 )
 
+rm -f "$FEEDSTOCK_ROOT/build_artefacts/conda-forge-build-done"
+
 cat << EOF | docker run -i \
-                        -v ${RECIPE_ROOT}:/recipe_root \
-                        -v ${FEEDSTOCK_ROOT}:/feedstock_root \
+                        -v "${RECIPE_ROOT}":/recipe_root \
+                        -v "${FEEDSTOCK_ROOT}":/feedstock_root \
                         -a stdin -a stdout -a stderr \
-                        condaforge/linux-anvil \
-                        bash || exit $?
+                        sdvillal/linux-anvil-cudnn \
+                        bash || exit 1
 
 export BINSTAR_TOKEN=${BINSTAR_TOKEN}
 export PYTHONUNBUFFERED=1
@@ -41,10 +44,23 @@ conda clean --lock
 conda install --yes --quiet conda-forge-build-setup
 source run_conda_forge_build_setup
 
-# Embarking on 1 case(s).
+# Embarking on 2 case(s).
     set -x
     export CONDA_PY=27
     set +x
     conda build /recipe_root --quiet || exit 1
     upload_or_check_non_existence /recipe_root loopbio --channel=main || exit 1
+
+    set -x
+    export CONDA_PY=35
+    set +x
+    conda build /recipe_root --quiet || exit 1
+    upload_or_check_non_existence /recipe_root loopbio --channel=main || exit 1
+touch /feedstock_root/build_artefacts/conda-forge-build-done
 EOF
+
+# double-check that the build got to the end
+# see https://github.com/conda-forge/conda-smithy/pull/337
+# for a possible fix
+set -x
+test -f "$FEEDSTOCK_ROOT/build_artefacts/conda-forge-build-done" || exit 1

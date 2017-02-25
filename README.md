@@ -11,6 +11,18 @@ Summary: A deep learning framework made with expression, speed, and modularity i
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/loopbio/caffe-gpu-feedstock.svg?style=shield)](https://circleci.com/gh/loopbio/caffe-gpu-feedstock)
+OSX: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/loopbio/caffe/badges/version.svg)](https://anaconda.org/loopbio/caffe)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/loopbio/caffe/badges/downloads.svg)](https://anaconda.org/loopbio/caffe)
+
 Installing caffe
 ================
 
@@ -34,18 +46,6 @@ conda search caffe --channel loopbio
 
 
 
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/caffe-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/caffe-feedstock)
-OSX: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/loopbio/caffe/badges/version.svg)](https://anaconda.org/loopbio/caffe)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/loopbio/caffe/badges/downloads.svg)](https://anaconda.org/loopbio/caffe)
-
 
 Updating caffe-feedstock
 ========================
@@ -57,7 +57,7 @@ opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `loopbio` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `loopbio` channel.
-Note that all branches in the conda-forge/caffe-feedstock are
+Note that all branches in the loopbio/caffe-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
