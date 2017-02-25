@@ -23,7 +23,7 @@ cmake .. -LAH                              \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}"   \
       -Dpython_version="$PY_MAJOR"
 make -j8
-make runtest
+make -j8 runtest
 make install
 
 # Python installation is non-standard. So, we're fixing it.
