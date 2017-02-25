@@ -20,14 +20,15 @@ build:
   skip: true  # [not linux]
   features:
     - blas_{{ variant }}
+    - cuda80
 
 requirements:
   build:
     - cmake
     - cython
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18|0.2.18.*
-    - boost 1.61.*
+    - openblas 0.2.19|0.2.19.*
+    - boost 1.63.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
     - glog
@@ -38,35 +39,7 @@ requirements:
     - matplotlib
     - networkx
     - nose
-    - numpy
-    - opencv 3.2.*
-    - pandas
-    - pillow
-    - protobuf
-    - python
-    - python-dateutil
-    - python-gflags
-    - python-leveldb
-    - pyyaml
-    - scikit-image
-    - scipy
-    - six
-    - snappy
-
-  run:
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.18|0.2.18.*
-    - boost 1.61.*
-    - hdf5 1.8.17|1.8.17.*
-    - gflags
-    - glog
-    - h5py
-    - ipython
-    - leveldb
-    - lmdb
-    - matplotlib
-    - networkx
-    - numpy
+    - numpy x.x
     - opencv 3.*
     - pandas
     - pillow
@@ -80,6 +53,36 @@ requirements:
     - scipy
     - six
     - snappy
+    - cuda80-feature
+
+  run:
+    - blas 1.1 {{ variant }}
+    - openblas 0.2.19|0.2.19.*
+    - boost 1.63.*
+    - hdf5 1.8.17|1.8.17.*
+    - gflags
+    - glog
+    - h5py
+    - ipython
+    - leveldb
+    - lmdb
+    - matplotlib
+    - networkx
+    - numpy x.x
+    - opencv 3.*
+    - pandas
+    - pillow
+    - protobuf
+    - python
+    - python-dateutil
+    - python-gflags
+    - python-leveldb
+    - pyyaml
+    - scikit-image
+    - scipy
+    - six
+    - snappy
+    - cuda80-feature  # Again, this defeats the purpose of features, but is needed for testing
 
 test:
   commands:
@@ -121,4 +124,5 @@ about:
 extra:
   recipe-maintainers:
     - jakirkham
+    - 183amir
     - sdvillal (loopbio changes)
