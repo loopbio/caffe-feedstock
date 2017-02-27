@@ -54,11 +54,6 @@ requirements:
     - six
     - snappy
 
-    # Crazy bad things happening because of broken gtk2 management
-    # Why does caffe try to load immediatly gtk2 and why is it linking to this oldie?
-    # Why is caffe the only one actually having problems with icu?
-    - icu=56.*
-
   run:
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
@@ -86,11 +81,6 @@ requirements:
     - scipy
     - six
     - snappy
-
-    # Crazy bad things happening because of broken gtk2 management
-    # Why does caffe try to load immediatly gtk2 and why is it linking to this oldie?
-    # Why is caffe the only one actually having problems with icu?
-    - icu=56.*
 
 test:
   requires:
