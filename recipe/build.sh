@@ -22,8 +22,8 @@ cmake .. -LAH                              \
       -DBLAS="open"                        \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}"   \
       -Dpython_version="$PY_MAJOR"
-make -j8
-make -j8 runtest
+make -j$CPU_COUNT
+make -j$CPU_COUNT runtest
 make install
 
 # Python installation is non-standard. So, we're fixing it.
