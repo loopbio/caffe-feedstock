@@ -14,7 +14,7 @@ Summary: A deep learning framework made with expression, speed, and modularity i
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/loopbio/caffe-gpu-feedstock.svg?style=shield)](https://circleci.com/gh/loopbio/caffe-gpu-feedstock)
+Linux: [![Circle CI](https://circleci.com/gh/loopbio/caffe-cpu-feedstock.svg?style=shield)](https://circleci.com/gh/loopbio/caffe-cpu-feedstock)
 OSX: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
 Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
 
