@@ -83,8 +83,14 @@ requirements:
     - snappy
 
 test:
+
+  source_files:
+    - python/caffe/test
+
   requires:
     - cuda80-feature
+    - pytest
+
   commands:
     # Test commands.
     - command -v "${PREFIX}/bin/caffe"
@@ -112,6 +118,9 @@ test:
 
     # Test libraries.
     - test -f "${PREFIX}/lib/libcaffe.so"
+
+    # Run python tests
+    - py.test python/caffe/test
 
   imports:
     - caffe
