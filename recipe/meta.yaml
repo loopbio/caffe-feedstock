@@ -16,7 +16,6 @@ build:
   skip: true  # [not linux]
   features:
     - blas_{{ blas_variant }}
-    - caffe_{{ cuda_version }}
 
 requirements:
   build:
@@ -85,9 +84,6 @@ test:
 
   requires:
     - pytest
-    - caffe-cuda-feature {{ caffe_cuda_version }}
-    # Conda requires the feature to be present at testing
-    # Otherwise the package won't be installed
 
   commands:
     # Test commands.
