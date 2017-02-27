@@ -16,7 +16,7 @@ source:
   sha1: 7511c051a451f091fdf2cbd9b69be014fdc61f9b
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
   features:
     - blas_{{ variant }}
