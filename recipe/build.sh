@@ -21,6 +21,10 @@ fi
 cmake .. -LAH                              \
       -DBLAS="open"                        \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}"   \
+      -DBUILD_docs=0                       \
+      -DUSE_LEVELDB=1                      \
+      -DUSE_LMDB=1                         \
+      -DUSE_OPENCV=1                       \
       -Dpython_version="$PY_MAJOR"
 make -j$CPU_COUNT
 make -j$CPU_COUNT runtest
