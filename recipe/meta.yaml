@@ -1,32 +1,36 @@
-# Find our git repo: https://github.com/loopbio/caffe-feedstock
+# Versions
+# N.B. these must match the versions in the caffe-cuda package.
+# (included here as a git submodule)
 
 {% set base_version = "1.0.0" %}
 {% set version_postfix = "rc5" %}
-{% set version = base_version + version_postfix %}
+{% set caffe_version = base_version + version_postfix %}
 
-{% set variant = "openblas" %}
+{% set blas_variant = "openblas" %}
+{% set cuda_version = "cuda80" %}
+{% set caffe_cuda_version = caffe_version + "_" + cuda_version %}
 
 package:
   name: caffe
-  version: {{ version }}
+  version: {{ caffe_version }}
 
 source:
-  fn: caffe_{{ version }}.tar.gz
+  fn: caffe_{{ caffe_version }}.tar.gz
   url: https://github.com/BVLC/caffe/archive/{{ version_postfix }}.tar.gz
   sha1: 7511c051a451f091fdf2cbd9b69be014fdc61f9b
 
 build:
-  number: 1
+  number: 2
   skip: true  # [not linux]
   features:
-    - blas_{{ variant }}
-    - cuda80
+    - blas_{{ blas_variant }}
+    - caffe_{{ cuda_version }}
 
 requirements:
   build:
     - cmake
     - cython
-    - blas 1.1 {{ variant }}
+    - blas 1.1 {{ blas_variant }}
     - openblas 0.2.19|0.2.19.*
     - boost 1.63.*
     - hdf5 1.8.17|1.8.17.*
@@ -55,7 +59,7 @@ requirements:
     - snappy
 
   run:
-    - blas 1.1 {{ variant }}
+    - blas 1.1 {{ blas_variant }}
     - openblas 0.2.19|0.2.19.*
     - boost 1.63.*
     - hdf5 1.8.17|1.8.17.*
@@ -88,8 +92,9 @@ test:
     - python/caffe/test
 
   requires:
-    - cuda80-feature
     - pytest
+    - caffe-cuda={{ caffe_cuda_version }}
+    # Conda requires these features to be present at testing
 
   commands:
     # Test commands.
@@ -119,7 +124,7 @@ test:
     # Test libraries.
     - test -f "${PREFIX}/lib/libcaffe.so"
 
-    # Run python tests
+    # Run python tests (N.B. all tests also run in build script)
     - py.test python/caffe/test
 
   imports:
@@ -131,7 +136,8 @@ about:
   summary: A deep learning framework made with expression, speed, and modularity in mind.
 
 extra:
+  recipe-url: https://github.com/loopbio/caffe-feedstock
   recipe-maintainers:
     - jakirkham
     - 183amir
-    - sdvillal (loopbio changes)
+    - sdvillal
