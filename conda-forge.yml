@@ -17,5 +17,5 @@ docker:
   #   - disable cuda-based tests in build.sh
   #     (needed anyway if building, e.g., in circleci)
   #   - use nvidia-docker and let all the tests run
-  #     I prefer this last option, if only because of peace of mind
-  #     we are building anyway in our GPU-equipped machines ATM
+  #     I prefer this last option, if only because of peace of mind.
+  #     We are building anyway in our GPU-equipped machines ATM
