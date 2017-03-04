@@ -20,7 +20,7 @@ source:
   sha1: 7511c051a451f091fdf2cbd9b69be014fdc61f9b
 
 build:
-  number: 2
+  number: 0
   skip: true  # [not linux]
   features:
     - blas_{{ blas_variant }}
