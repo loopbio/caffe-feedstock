@@ -1,0 +1,3 @@
+[submodule "caffe-cuda-feedstock"]
+	path = caffe-cuda-feedstock
+	url = git@github.com:loopbio/caffe-cuda-feedstock.git
