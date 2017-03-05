@@ -4,7 +4,7 @@
 
 package:
   name: caffe-cuda
-  version: {{ caffe_cuda_version }}
+  version: {{ caffe_cuda_cudnn_version }}
 
 build:
   number: 0
