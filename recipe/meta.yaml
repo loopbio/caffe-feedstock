@@ -1,14 +1,6 @@
-# Versions
-# N.B. these must match the versions in the caffe-cuda package.
-# (included here as a git submodule)
+{% extends "base.yaml" %}
 
-{% set base_version = "1.0.0" %}
-{% set version_postfix = "rc5" %}
-{% set caffe_version = base_version + version_postfix %}
-
-{% set blas_variant = "openblas" %}
-{% set cuda_version = "cuda80" %}
-{% set caffe_cuda_version = caffe_version + "_" + cuda_version %}
+{% block recipe %}
 
 package:
   name: caffe
@@ -130,14 +122,4 @@ test:
   imports:
     - caffe
 
-about:
-  home: http://caffe.berkeleyvision.org/
-  license: BSD 2-Clause
-  summary: A deep learning framework made with expression, speed, and modularity in mind.
-
-extra:
-  recipe-url: https://github.com/loopbio/caffe-feedstock
-  recipe-maintainers:
-    - jakirkham
-    - 183amir
-    - sdvillal
+{% endblock %}
