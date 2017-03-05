@@ -38,7 +38,11 @@ echo "  " `cat ${logsDir}/${package}-cuda-feature.log | grep "anaconda upload"`
 echo "  " `cat ${logsDir}/${package}.log | grep "anaconda upload"`
 echo "  " `cat ${logsDir}/${package}-cuda.log | grep "anaconda upload"`
 echo "add \"-u {channel}\" to upload to a different organization (e.g. \"-u loopbio\")."
-echo " --- Fertig ---"
+echo "
+Do not forget to build the CPU version of the package (in the \"cpu\" branch).
+
+--- Fertig ---
+"
 
 #
 # --- Notes
