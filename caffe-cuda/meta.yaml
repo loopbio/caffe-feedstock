@@ -1,0 +1,24 @@
+{% extends 'base.yaml' %}
+
+{% block recipe %}
+
+package:
+  name: caffe-cuda
+  version: {{ caffe_cuda_version }}
+
+build:
+  number: 0
+  track_features:
+    - caffe_{{ cuda_version }}
+
+requirements:
+  run:
+    - caffe
+
+test:
+  imports:
+    - caffe
+  commands:
+    - python -c "import caffe; caffe.set_mode_gpu(); caffe.set_device(0)"
+
+{% endblock %}
