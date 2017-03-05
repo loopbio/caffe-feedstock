@@ -85,8 +85,9 @@ test:
 
   requires:
     - pytest
-    - caffe-cuda={{ caffe_cuda_version }}
-    # Conda requires these features to be present at testing
+    - caffe-cuda-feature {{ caffe_cuda_version }}
+    # Conda requires the feature to be present at testing
+    # Otherwise the package won't be installed
 
   commands:
     # Test commands.
