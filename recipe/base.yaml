@@ -2,8 +2,10 @@
 {% set version_postfix = "rc5" %}
 {% set caffe_version = base_version + version_postfix %}
 
-{% set cuda_version = "cuda80" %}
-{% set caffe_cuda_version = caffe_version + "_" + cuda_version %}
+{% set cuda_version = "8.0" %}
+{% set cudnn_version = "5.1" %}
+{% set cuda_cudnn_version = cuda_version + "_" + cudnn_version %}
+{% set caffe_cuda_cudnn_version = caffe_version + "_" + cuda_cudnn_version %}
 
 {% set blas_variant = "openblas" %}
 

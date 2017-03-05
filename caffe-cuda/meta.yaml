@@ -9,13 +9,19 @@ package:
 build:
   number: 0
   track_features:
-    - caffe_{{ cuda_version }}
+    - caffe_{{ cuda_cudnn_version }}
+  features:
+    - cuda{{ cuda_version }}
+    - cudnn{{ cudnn_version }}
 
 requirements:
   run:
     - caffe
 
 test:
+  requires:
+    - cuda-feature {{ cuda_version }}
+    - cudnn-feature {{ cudnn_version }}
   imports:
     - caffe
   commands:

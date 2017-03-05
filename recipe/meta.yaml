@@ -16,7 +16,13 @@ build:
   skip: true  # [not linux]
   features:
     - blas_{{ blas_variant }}
-    - caffe_{{ cuda_version }}
+    - caffe_{{ cuda_cudnn_version }}  # need this to allow installing caffe cpu even if cuda is there
+    - cuda{{ cuda_version }}          # need this to force the user knows about cuda requirements
+    - cudnn{{ cudnn_version }}        # need this to force the user knows about cudnn requirements
+    # Unfortunately one cannot make conda features depend on other features.
+    # At this stage, this is profoundly redundant, getting descriptors like:
+    #   caffe-1.0.0rc5-np111py27_blas_openblas_caffe_8.0_5.1_cuda8.0_cudnn5.1_0
+    # Oh well...
 
 requirements:
   build:
@@ -85,7 +91,9 @@ test:
 
   requires:
     - pytest
-    - caffe-cuda-feature {{ caffe_cuda_version }}
+    - caffe-cuda-feature {{ caffe_cuda_cudnn_version }}
+    - cuda-feature {{ cuda_version }}
+    - cudnn-feature {{ cudnn_version }}
     # Conda requires the feature to be present at testing
     # Otherwise the package won't be installed
 

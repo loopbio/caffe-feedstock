@@ -4,11 +4,14 @@
 
 package:
   name: caffe-cuda-feature
-  version: {{ caffe_cuda_version }}
+  version: {{ caffe_cuda_cudnn_version }}
 
 build:
   number: 0
   track_features:
-    - caffe_{{ cuda_version }}
+    - caffe_{{ cuda_cudnn_version }}
+  features:
+    - cuda{{ cuda_version }}
+    - cudnn{{ cudnn_version }}
 
 {% endblock %}
