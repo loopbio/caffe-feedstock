@@ -25,7 +25,11 @@ set +x
 echo "All done, please upload the new artifacts in ${localRepoDir} to anaconda.org like:"
 echo "  " `cat ${logsDir}/${package}.log | grep "anaconda upload"`
 echo "add \"-u {channel}\" to upload to a different organization (e.g. \"-u loopbio\")."
-echo " --- Fertig ---"
+echo "
+Do not forget to build the CPU version of the package (in the \"cpu\" branch).
+
+--- Fertig ---
+"
 
 #
 # --- Notes
