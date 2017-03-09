@@ -16,6 +16,8 @@ build:
 
 requirements:
   run:
+    - openblas 0.2.19|0.2.19.*
+    - numpy
     - caffe
 
 test:
